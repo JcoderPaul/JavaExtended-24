@@ -9,19 +9,20 @@
 Использование Stream API для управления данными сбора аналогично использованию SQL для выполнения
 запросов к базе данных. Stream API обеспечивает эффективный и простой в использовании способ обработки
 данных.
-
+```
 Стрим:
 - канал данных, используемый для управления последовательностью элементов, сгенерированных
 источником данных (коллекция, массив и т. Д.);
 - последовательность набора данных;
 - поток управляемых расчетов и изменений над входными данными;
-
+```
 !!! Стрим НЕ !!!
 - стрим не хранит элементы;
 - стрим не меняет исходный объект, вместо этого он возвращает новый поток, содержащий требуемый результат;
 - промежуточные операции стрима выполняются с задержкой. Это означает, что промежуточные методы стрима
   (ленивые - lazy) и ожидают, соответствующего запроса от терминальной операции (которые в свою очередь
   жадные - eager), т.е. когда результаты будут востребованы.
+
 *** Три шага работы потока ***
 
 - Шаг 1 - Создать поток - из источника данных (например: коллекция, массив), получить поток;
@@ -39,23 +40,21 @@
 Cоздание стрима из массива и коллекции:
 
 - Статический метод *.stream () для коллекций (List)
-  Пример: Stream<String> myStream = rainbow.stream();
+  - Пример: Stream<String> myStream = rainbow.stream();
 - Cтатический метод для массивов Stream (массив T []): возвращает поток
-  Пример: Arrays.stream(new int[]{2, 4, 5, 1}).forEach(System.out::println);
+  - Пример: Arrays.stream(new int[]{2, 4, 5, 1}).forEach(System.out::println);
 
-Создать поток из набора значений:
-Использовать статический метод Stream.of (n...) для создания потока путем отображения значений параметров.
-Синтаксис: public static Stream of (T… values)
-Пример: Stream<String> strStream = Stream.of("шла","маша","по", "шоссе","и","сосала","сушку");
-или
-Пример: Stream<Integer> intStream = Stream.of(1, 2, 3, 4, 5, 6, 7);
+Создание стрима из набора значений используя статический метод Stream.of (n...):
+- Синтаксис: public static Stream of (T… values)
+  - Пример #1 : Stream<String> strStream = Stream.of("шла","маша","по", "шоссе","и","сосала","сушку");
+  - Пример #2 : Stream<Integer> intStream = Stream.of(1, 2, 3, 4, 5, 6, 7);
 
 (см. пример [Less_24_ch_7_Stream_Concat](https://github.com/JcoderPaul/JavaExtended-24/tree/master/Less_24_ch_7_Stream_Concat/src/Less_24_ch_7_Stream_Concat))
 
-Существует способ создания бесконечного стрима:
+Существует способ создания бесконечного стрима.
 Можно использовать статические методы Stream.iterate () и Stream.generate() для создания бесконечного потока.
-Синтаксис: public static Stream iterate(final T seed, final UnaryOperator f)
-Синтаксис: public static Stream generate(Supplier s)
+ - Синтаксис: public static Stream iterate(final T seed, final UnaryOperator f)
+ - Синтаксис: public static Stream generate(Supplier s)
 
 (см. пример [Less_24_ch_18_EndlessStream](https://github.com/JcoderPaul/JavaExtended-24/tree/master/Less_24_ch_18_EndlessStream/src/Less_24_ch_18_EndlessStream))
 
