@@ -23,7 +23,7 @@ public class Less_24_ParallelStream_Step3 {
         long m = System.currentTimeMillis(); // Фиксируем стартовое время начала расчета
 
         int sumResult = arr_for_sum.stream(). // Создаем однопоточный стрим из коллекции
-                reduce((acum, elem) -> acum-elem). // Рассчитываем сумму всех элементов коллекции
+                reduce((acum, elem) -> acum-elem). // Рассчитываем разницу всех элементов коллекции
                 get(); // Получаем результат
 
         System.out.println(sumResult); // Выводим на экран результаты расчетов
@@ -40,7 +40,7 @@ public class Less_24_ParallelStream_Step3 {
         long m_parallel = System.currentTimeMillis(); // Снова фиксируем начало расчета
 
         int parallelSumResult = arr_for_sum.parallelStream(). // Создаем параллельный стрим
-                reduce((acum, elem) -> acum-elem). // Расчитываем сумму всех элементов, как и в прошлый раз
+                reduce((acum, elem) -> acum-elem). // Рассчитываем разницу всех элементов, как и в прошлый раз
                 get(); // Возвращаем результат
         System.out.println(parallelSumResult); // Выводим результат на экран
 

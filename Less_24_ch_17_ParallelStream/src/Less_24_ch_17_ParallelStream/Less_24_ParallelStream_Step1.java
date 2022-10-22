@@ -30,7 +30,7 @@ public class Less_24_ParallelStream_Step1 {
         long m_parallel = System.currentTimeMillis(); // Снова фиксируем начало расчета
 
         int parallelSumResult = arr_for_sum.parallelStream(). // Создаем параллельный стрим
-                reduce((acum, elem) -> acum+elem). // Расчитываем сумму всех элементов, как и в прошлый раз
+                reduce((acum, elem) -> acum+elem). // Рассчитываем сумму всех элементов, как и в прошлый раз
                 get(); // Возвращаем результат
         System.out.println(parallelSumResult); // Выводим результат на экран
 
